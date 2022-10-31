@@ -1,7 +1,7 @@
 Hello! Thank you for checking my first portfolio
 Here, readers may get a clue of my thought process or just how my brain works overall
 Please keep in mind I want to showcase various querying features that I know, so these queries may not exactly the most efficient or effective
-With limited free time I still have, this is what I have in store, so open up__the in multi-window setup to see the actual results!
+With limited free time I still have, this is what I have in store, so open up SQL_EDA_pdf in multi-window setup to see the actual results!
 
 The data we're using are the global COVID-19 Deaths and Vaccinations, and we'll do some data exploration on it
 -- 1. After loading up the data on the local database, let's see what the data has to offer
@@ -112,7 +112,7 @@ order by 2,3 (Pic 9)
 select location, min(date) from COVID_Vaccinations
 where new_vaccinations is not null and date < '2021-01-01 00:00:00.000' and continent is not null
 group by location
-order by 2
+order by 2 (Pic 10.1)
 
 -- So, we can see that the earliest date was '2020-12-09 00:00:00.000' by Norway
 -- Let's use the date to help us filter the data of population and rolling vaccinations by each country
@@ -124,8 +124,8 @@ join COVID_Vaccinations vacc
 	on dead.location = vacc.location and
 	dead.date = vacc.date
 where dead.continent is not null and dead.date between '2020-12-09 00:00:00.000' and (select max(date) from COVID_Deaths)
-order by 2, 3
--- Now we can see the historic number of people vaccinated daily in each country
+order by 2, 3 (Pic 10.2)
+-- Now we can see the historic number of people vaccinated daily in each country, with accumulated vaccinations
 
 -- Some of you keen eyed readers may notice why we use bigint instead of int
 -- 11. Of course I used int first, but instead got an error. Let's see the total sum of vaccinations
@@ -134,8 +134,8 @@ from COVID_Deaths dead
 join COVID_Vaccinations vacc
 	on dead.location = vacc.location and
 	dead.date = vacc.date
-where dead.continent is not null
--- Turns out the total vaccinations worldwide has exceeded 2 billion, making the use of bigint necessary
+where dead.continent is not null (Pic 11)
+-- Turns out the total vaccinations worldwide has exceeded 2,147 billion (the hard limit), making the use of bigint necessary
 
 -- 12. Now, I want to create a new column containing percentage of the population getting vaccinations
 with Pops_vs_Vacc (Continent, Location, Date, Population, New_Vaccinations, Total_Vaccinations) as 
@@ -150,7 +150,7 @@ join COVID_Vaccinations vacc
 where dead.continent is not null and dead.date between '2020-12-09 00:00:00.000' and (select max(date) from COVID_Deaths)
 )
 select *, (Total_Vaccinations/Population)*100 as Vaccinations_Percentage
-from Pops_vs_Vacc
+from Pops_vs_Vacc (Pic 12)
 -- We used CTE or Common Table Experssion to create the calculation
 -- Now, it should be noted that with CTEs, we need to run the whole query everytime
 
@@ -164,7 +164,7 @@ Date datetime,
 Population numeric,
 New_Vaccinations numeric,
 Total_Vaccinations numeric
-)
+) (Pic 13.1)
 
 insert into #Vaccinated_Population_Percentage
 select dead.continent, dead.location, dead.date, dead.population, vacc.new_vaccinations,
@@ -175,23 +175,24 @@ join COVID_Vaccinations vacc
 	on dead.location = vacc.location and
 	dead.date = vacc.date
 where dead.continent is not null and dead.date between '2020-12-09 00:00:00.000' and (select max(date) from COVID_Deaths)
-order by 2, 3
+order by 2, 3 (Pic 13.2)
 
 select *, (Total_Vaccinations/Population)*100 as Vaccinations_Percentage
-from #Vaccinated_Population_Percentage
+from #Vaccinated_Population_Percentage (Pic 13.3)
 
--- Now we can independently execute the vacc-pops percentage with temp tables
+-- Now we can independently execute the vacc-pops percentage with temp tables, notice that Pic 13.3 displays the same result as Pic 12
 -- Or, we could execute other calculations that suit our needs with the available data from our temp table
 
--- Now, we want to prepare some data for data visualization purposes, which I'll do in the next one with Tableau
--- Vis_1
+-- Now, we want to prepare some data for basic data visualization purposes, which I'll do in the next one with Tableau
+-- By running these queries and saving the ouput as Excel files, we can then import it into Tableau
+-- Vis_1 (Q1.)
 select sum(new_cases) as total_cases, sum(cast(new_deaths as int)) as total_deaths,
 sum(cast(new_deaths as bigint))/sum(new_cases)*100 as Death_Percentage
 from COVID_Deaths
 where continent is not null
 order by 1, 2
 
--- Vis_2
+-- Vis_2 (Q2.)
 select location, sum(cast(new_deaths as bigint)) as total_death_count
 from COVID_Deaths
 where continent is null
@@ -199,13 +200,13 @@ and location not in ('World', 'European Union', 'International') and location no
 group by location
 order by total_death_count desc
 
--- Vis_3
+-- Vis_3 (Q3.)
 select location, population, max(total_cases) as max_infection_count, 
 max((total_cases/population))*100 as percent_population_infected
 from COVID_Deaths
 group by location, population
 
--- Vis_4
+-- Vis_4 (Q4.)
 select location, population, date, max(total_cases) as max_infection_count, 
 max((total_cases/population))*100 as percent_population_infected
 from COVID_Deaths
