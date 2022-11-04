@@ -1,6 +1,8 @@
---Hello! Thank you for checking my first portfolio
---Please keep in mind I want to showcase various querying features I know of, so these queries may not exactly the most efficient in terms of EDA
---With limited free time I still have, this is what I have in store, so open up SQL_EDA_pdf listed on my web and let's go!
+-- Hello! Thank you for checking my first portfolio
+-- Please keep in mind I want to showcase various querying features I know of, so these queries may not exactly the most efficient in terms of EDA
+-- With limited free time I still have, this is what I have in store, so open up SQL_EDA_pdf listed on my web and let's go!
+
+-- Dataset used: https://ourworldindata.org/covid-deaths (accumulating data updated monthly, taken in August 2022)
 
 --The data we're using are the global COVID-19 Deaths and Vaccinations, and we'll do some data exploration on it
 
