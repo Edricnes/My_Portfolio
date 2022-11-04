@@ -1,10 +1,11 @@
 -- Hello! Thank you for checking my first portfolio
 -- Please keep in mind I want to showcase various querying features I know of, so these queries may not exactly the most efficient in terms of EDA
--- With limited free time I still have, this is what I have in store, so open up SQL_EDA_pdf listed on my web and let's go!
+-- I strongly recommend to open up SQL_EDA_pdf listed on my web if you want to follow along!
+-- Or if you can't be bothered here's the link to SQL_EDA_pdf : https://github.com/Edricnes/My_Portfolio/blob/main/1_SQL_EDA/1_SQL_EDA_pdf.pdf
 
 -- Dataset used: https://ourworldindata.org/covid-deaths (accumulating data updated monthly, taken in August 2022)
 
---The data we're using are the global COVID-19 Deaths and Vaccinations, and we'll do some data exploration on it
+-- The data we're using are the global COVID-19 Deaths and Vaccinations, and we'll do some data exploration on it
 
 -- 1. After loading up the data on the local database, let's see what the data has to offer
 -- Looking at all the different variables of the raw data will give us an idea what we're working with
@@ -214,3 +215,7 @@ max((total_cases/population))*100 as percent_population_infected
 from COVID_Deaths
 group by location, population, date
 order by 1, 3 desc
+
+-- That's about it, I know it's not the most complete and comprehensive EDA there is, what with the limited time I have anyway
+-- Thank you for reading! Hope this gives an idea of my work thought process and basically, how my brain works too
+-- God Bless!
