@@ -1,5 +1,7 @@
 -- Welcome, today we'll do some data cleaning in SQL using a dataset called Nashville Housing
--- There is also a pdf containing pictures so readers can understand the steps in context easier, refer the picture numbering in the query to the pdf
+-- There is also a pdf containing pictures so readers can easily understand the steps, it's on the web portfolio!
+-- Note that not all queries have their own pictures, only ones that are useful in providing context will be there
+-- Here's the pdf link if you can't be bothered to go back to web: https://drive.google.com/file/d/1Te5auXTFwRHVNA71m-DiHi5OHtUtJlVd/view?usp=share_link
 
 -- 1. First, almost like a tradition let's bring up the whole data to see what we're dealing with
 select * from Nashville_Housing (Pic 1)
@@ -193,7 +195,7 @@ alter table Nashville_Housing
 drop column OwnerAddress, PropertyAddress, TaxDistrict, SaleDate
  
  -- Again, manual checking with the 'select*from table'
- -- Now, the whole point of data cleaning is to make the necessary changes, adjustments, trimmings, etc to make the data more usable for future analysis or maybe even machine learning purposes
+ -- Now, the whole point of data cleaning is to make the necessary changes, adjustments, trimmings, etc to make the data more usable for future analysis or even machine learning purposes
  -- But in doing so, we have to be careful in the process to not mess up or worse, lose the raw data. So, it is up to us or the team to handle this task properly, and responsibly
 
  -- Thank you for reading, wish you well!
