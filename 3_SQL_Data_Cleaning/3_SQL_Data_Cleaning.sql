@@ -184,7 +184,7 @@ where row_num > 1
 -- '104 rows affected' now we rerun the row_num_cte, nothing should come up
 
 -- 8. Deleting Unused Columns 
--- Again, these steps should only be done if it is allowed to alter the raw data, as these actions are permenent
+-- Again, these steps should only be done if it is allowed to alter the raw data, as these actions are permanent
 -- First, checking which column(s) are deemed unnecessary
 
 select * from Nashville_Housing
