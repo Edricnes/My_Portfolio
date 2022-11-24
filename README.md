@@ -1,5 +1,5 @@
 # My_Portfolio
-*Coming up: Visualization/Dashboards and Machine Learning Projects!
+*Coming up: Data collection and EDA using API of either Youtube or American Census (haven't decided at the time)
 
 Hi! Thank you for visiting my personal portfolio.
 To navigate, simply just open the files in the folder. In case you didn't know, I have a dedicated portfolio website: https://edricnes.github.io/EdricPortfolio.github.io/
