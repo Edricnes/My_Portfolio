@@ -1,4 +1,4 @@
-To view the Tableau visualization, here's the URL: https://public.tableau.com/app/profile/edricnes/viz/Covid_Dashboard_16658607710170/Dashboard1
+To view the Tableau visualization, here's click [**HERE**](https://public.tableau.com/app/profile/edricnes/viz/Covid_Dashboard_16658607710170/Dashboard1)
 
 This viz was made on a FHD monitor (1920x1080).
 
