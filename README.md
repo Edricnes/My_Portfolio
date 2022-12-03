@@ -14,4 +14,4 @@ God Bless You, and have a nice day!
 
 Author | Last Update | Projects | LinkedIn
 :---: | :---: | :---: | :---:
-**Edricnes** | `26-11-2022` | **6** | [**Link**](https://www.linkedin.com/in/edricnes-edricnes-16b5b822a/)
+**Edricnes** | `26-11-2022` | **7** | [**Link**](https://www.linkedin.com/in/edricnes-edricnes-16b5b822a/)
