@@ -1,5 +1,4 @@
 # My_Portfolio
-**Coming up:** *Youtube videos analysis from several channels using Youtube API, plus NLP (haven't come up with a better title)*
 
 Hi! Thank you for visiting my personal portfolio.
 To navigate, simply just open the files in the folder. In case you didn't know, I have a dedicated portfolio website [**HERE**](https://edricnes.github.io/EdricPortfolio.github.io/) for easier navigation and overviews.
