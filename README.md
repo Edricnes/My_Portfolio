@@ -1,5 +1,7 @@
 # My_Portfolio
 
+*Update: There's been a lot of stuff lately, will post again in a week!*
+
 Hi! Thank you for visiting my personal portfolio.
 To navigate, simply just open the files in the folder. In case you didn't know, I have a dedicated portfolio website [**HERE**](https://edricnes.github.io/EdricPortfolio.github.io/) for easier navigation and overviews.
 
